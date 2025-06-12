@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { plantList } from '../datas/plantList'
 import PlantItem from './PlantItem'
-import '../styles/ShoppingList.css'
+import '../Styles/ShoppingList.css'
 import Categories from './Categories'
 
 const ShoppingList = ({cart, updateCart}) => {
