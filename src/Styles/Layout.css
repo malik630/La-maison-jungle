@@ -1,0 +1,359 @@
+/* Layout.css - Styles spécifiques à la mise en page */
+
+/* ===== ÉCRAN DE CHARGEMENT ===== */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: var(--font-family);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(45, 80, 22, 0.2);
+  border-top: 4px solid var(--primary-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-lg);
+}
+
+.loading-screen p {
+  color: var(--primary-green);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  margin: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ===== SIDEBAR (PANIER) ===== */
+.sidebar {
+  position: sticky;
+  top: var(--spacing-lg);
+  height: fit-content;
+  animation: slideIn 0.6s ease-out 0.2s both;
+}
+
+/* ===== CONTENU PRINCIPAL ===== */
+.main-content {
+  min-height: 500px;
+  animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+/* ===== AMÉLIORATION DES COMPOSANTS EXISTANTS ===== */
+
+/* Amélioration des listes de plantes */
+.lmj-shopping-list {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl);
+  border: 1px solid rgba(45, 80, 22, 0.1);
+  transition: all var(--transition-normal);
+}
+
+.lmj-shopping-list:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(45, 80, 22, 0.2);
+}
+
+.lmj-shopping-list h2 {
+  color: var(--primary-green);
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  position: relative;
+}
+
+.lmj-shopping-list h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-green-light));
+  border-radius: 2px;
+}
+
+/* Grille des plantes */
+.lmj-plant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+/* Cartes de plantes améliorées */
+.lmj-plant-item {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(45, 80, 22, 0.1);
+  position: relative;
+}
+
+.lmj-plant-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(45, 80, 22, 0.2);
+}
+
+.lmj-plant-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-green-light), var(--accent-yellow));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.lmj-plant-item:hover::before {
+  opacity: 1;
+}
+
+.lmj-plant-item-cover {
+  height: 200px;
+  background: linear-gradient(135deg, #f8fff8, #e8f5e8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.lmj-plant-item-cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(45, 80, 22, 0.05) 100%);
+}
+
+.plant-emoji {
+  z-index: 2;
+  position: relative;
+  transition: transform var(--transition-normal);
+}
+
+.lmj-plant-item:hover .plant-emoji {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.lmj-plant-item-text {
+  padding: var(--spacing-lg);
+}
+
+.lmj-plant-item h3 {
+  color: var(--primary-green);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+.lmj-plant-item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: var(--light-gray);
+  border-radius: var(--border-radius-sm);
+}
+
+.plant-price {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.plant-care {
+  display: flex;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.care-icon {
+  padding: var(--spacing-xs);
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: var(--border-radius-sm);
+  color: var(--primary-green);
+  font-weight: 500;
+}
+
+/* Filtres et catégories */
+.lmj-categories {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.lmj-categories button {
+  background: var(--white);
+  color: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.lmj-categories button:hover,
+.lmj-categories button.active {
+  background: var(--primary-green);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== RESPONSIVE AMÉLIORÉ ===== */
+@media (max-width: 1024px) {
+  .lmj-plant-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .lmj-shopping-list {
+    padding: var(--spacing-lg);
+  }
+  
+  .lmj-plant-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+  }
+  
+  .lmj-plant-item-cover {
+    height: 150px;
+    font-size: 3rem;
+  }
+  
+  .lmj-categories {
+    gap: var(--spacing-sm);
+  }
+  
+  .lmj-categories button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .lmj-plant-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .lmj-plant-item-cover {
+    height: 120px;
+    font-size: 2.5rem;
+  }
+  
+  .lmj-categories {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .lmj-categories button {
+    width: 200px;
+  }
+}
+
+/* ===== ÉTATS VIDES ===== */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xxxl) var(--spacing-lg);
+  color: var(--text-light);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  color: var(--primary-green);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-state p {
+  font-size: var(--font-size-lg);
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== NOTIFICATIONS/TOASTS ===== */
+.toast {
+  position: fixed;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  background: var(--white);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+  z-index: var(--z-toast);
+  animation: slideInFromRight 0.3s ease-out;
+  border-left: 4px solid var(--accent-green);
+}
+
+.toast.success {
+  border-left-color: var(--success);
+}
+
+.toast.error {
+  border-left-color: var(--error);
+}
+
+.toast.warning {
+  border-left-color: var(--warning);
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== AMÉLIORATIONS DE PERFORMANCE ===== */
+.lmj-plant-item-cover,
+.plant-emoji {
+  will-change: transform;
+}
+
+.lmj-plant-item:hover {
+  will-change: transform, box-shadow;
+}

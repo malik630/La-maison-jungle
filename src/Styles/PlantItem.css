@@ -1,0 +1,104 @@
+.lmj-plant-item {
+    margin: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-transform: capitalize;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    width: 280px;
+    min-height: 320px;
+}
+
+.lmj-plant-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lmj-plant-item-cover {
+    height: 200px;
+    width: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.lmj-plant-item > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.lmj-plant-item {
+    margin: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-transform: capitalize;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    width: 280px;
+    min-height: 320px;
+    position: relative; /* Ajouté pour le positionnement du prix */
+}
+
+.lmj-plant-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lmj-plant-item-cover {
+    height: 200px;
+    width: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.lmj-plant-item > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.lmj-plant-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d5a27;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lmj-plant-item-price {
+    position: absolute;
+    border-radius: 20px 20px 20px 0;
+    background: linear-gradient(135deg, #2d5a27, #4a7c59);
+    color: white;
+    padding: 12px 16px;
+    right: 0;
+    top: 0;
+    font-weight: 600;
+    font-size: 16px;
+    z-index: 1;
+    box-shadow: 0 3px 8px rgba(45, 90, 39, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lmj-plant-item-price:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(45, 90, 39, 0.4);
+}

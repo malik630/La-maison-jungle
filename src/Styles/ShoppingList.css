@@ -1,0 +1,52 @@
+.lmj-plant-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.lmj-shopping-container {
+    background: #f5f7f5;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.lmj-plant-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.lmj-add-to-cart-btn {
+    background: linear-gradient(135deg, #2d5a27, #4a7c59);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(45, 90, 39, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 180px;
+}
+
+.lmj-add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 90, 39, 0.3);
+    background: linear-gradient(135deg, #4a7c59, #2d5a27);
+}
+
+.lmj-add-to-cart-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(45, 90, 39, 0.2);
+}

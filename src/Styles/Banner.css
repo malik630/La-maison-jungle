@@ -1,0 +1,242 @@
+/* Banner.css */
+.lmj-banner {
+  background: linear-gradient(135deg, #2d5016 0%, #3a6b1f 30%, #4a7c2a 70%, #5d8f3d 100%);
+  color: white;
+  text-align: center;
+  padding: 25px 32px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Effet de brillance animé en bas */
+.lmj-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39, #FFEB3B, #CDDC39, #8BC34A, #4CAF50);
+  background-size: 300% 100%;
+  animation: shimmerBottom 12s ease-in-out infinite;
+}
+
+/* Effet de particules flottantes */
+.lmj-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 100px 100px, 150px 150px, 120px 120px, 80px 80px;
+  animation: floatParticles 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerBottom {
+  0%, 100% {
+    background-position: 300% 0;
+  }
+  50% {
+    background-position: -300% 0;
+  }
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-10px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(5px) translateY(-10px);
+  }
+  75% {
+    transform: translateX(-5px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.banner-content:hover {
+  transform: translateY(-2px);
+}
+
+.lmj-logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+.lmj-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes logoGlow {
+  0% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(139, 195, 74, 0.4);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px 5px rgba(139, 195, 74, 0.2);
+  }
+}
+
+.lmj-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  padding-left: 0;
+  background: linear-gradient(135deg, #ffffff, #e8f5e8, #d4edda);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  letter-spacing: 1px;
+  animation: titlePulse 4s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.lmj-title::after {
+  content: '🌿';
+  position: absolute;
+  right: -35px;
+  top: -5px;
+  font-size: 24px;
+  animation: leafSway 3s ease-in-out infinite;
+}
+
+@keyframes leafSway {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Effet de survol sur le banner entier */
+.lmj-banner:hover::after {
+  animation-duration: 6s;
+}
+
+.lmj-banner:hover::before {
+  animation-duration: 10s;
+}
+
+/* Version alternative avec alignement à droite (si préféré) */
+.lmj-banner.right-aligned {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.lmj-banner.right-aligned .banner-content {
+  justify-content: flex-end;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lmj-banner {
+    padding: 20px 20px;
+    min-height: 80px;
+  }
+  
+  .banner-content {
+    gap: 15px;
+  }
+  
+  .lmj-logo {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .lmj-title {
+    font-size: 26px;
+  }
+  
+  .lmj-title::after {
+    right: -25px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lmj-banner {
+    padding: 15px 15px;
+    min-height: 70px;
+  }
+  
+  .banner-content {
+    gap: 12px;
+    flex-direction: column;
+  }
+  
+  .lmj-logo {
+    height: 45px;
+    width: 45px;
+  }
+  
+  .lmj-title {
+    font-size: 22px;
+    text-align: center;
+  }
+  
+  .lmj-title::after {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-left: 8px;
+  }
+}
+
+/* Variante sombre (optionnelle) */
+.lmj-banner.dark-theme {
+  background: linear-gradient(135deg, #1a2f0e 0%, #243a16 30%, #2d4419 70%, #36501c 100%);
+}
+
+.lmj-banner.dark-theme .lmj-title {
+  background: linear-gradient(135deg, #ffffff, #f0f8f0, #e8f5e8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
