@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import logo from '../Assets/logo_lmj.png'
+import logo from '../assets/logo_lmj.png'
 import Banner from './Banner.jsx'
 import Cart from './Cart.jsx'
 import ShoppingList from './ShoppingList.jsx'
